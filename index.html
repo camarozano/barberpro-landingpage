@@ -58,18 +58,28 @@
   </footer>
 
   <script>
-    emailjs.init("_e9AQy2m2auupjcLZ");
+  // Inicializa o EmailJS com sua Public Key
+  emailjs.init("8SGBwPssn9k4M-Phg");
 
-    document.getElementById('form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      emailjs.sendForm('_e9AQy2m2auupjcLZ', 'template_e9fg5ul', this)
-        .then(() => alert('Mensagem enviada com sucesso!'))
-        .catch(() => alert('Erro ao enviar. Tente novamente.'));
-    });
+  // Envia o formulário
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-    document.getElementById('toggle-theme').addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-    });
-  </script>
+    emailjs.sendForm('default_service', 'template_e9fg5ul', this)
+      .then(() => {
+        alert('Mensagem enviada com sucesso!');
+        this.reset(); // Limpa o formulário após envio
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar:', error);
+        alert('Erro ao enviar. Verifique os dados ou tente novamente.');
+      });
+  });
+
+  // Alterna o tema escuro/claro
+  document.getElementById('toggle-theme').addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
+</script>
 </body>
 </html>
