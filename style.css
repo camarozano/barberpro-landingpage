@@ -1,66 +1,127 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #333;
+  --primary-color: #000;
+  --accent-color: gold;
+}
+
 body {
-	margin: 0;
-	font-family: 'Roboto', sans-serif;
-	background: #fff;
-	color: #333;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  --bg-color: #121212;
+  --text-color: #eee;
+  --primary-color: #1f1f1f;
+  --accent-color: #444;
 }
 
 header {
-	background: #000;
-	color: #fff;
-	text-align: center;
-	padding: 60px 20px;
+  background: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
 }
 
 header h1 {
-	font-family: 'Poppins', sans-serif;
-	font-size: 3em;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3em;
 }
 
 .btn {
-	background: gold;
-	color: #000;
-	padding: 10px 20px;
-	text-decoration: none;
-	border-radius: 5px;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
 }
 
 section {
-	padding: 40px 20px;
+  padding: 40px 20px;
 }
 
 #servicos ul {
-	list-style: none;
-	padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 #servicos li {
-	margin: 10px 0;
-	font-weight: bold;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.fotos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.fotos img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
 }
 
 form {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: auto;
 }
 
 input, textarea {
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 button {
-	background: #000;
-	color: #fff;
-	padding: 10px;
-	border: none;
-	border-radius: 5px;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
 
 footer {
   text-align: center;
   padding: 20px;
   background: #f4f4f4;
+}
+
+#toggle-theme {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: var(--accent-color);
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  section {
+    padding: 20px;
+  }
+
+  .fotos {
+    flex-direction: column;
+    align-items: center;
+  }
 }
